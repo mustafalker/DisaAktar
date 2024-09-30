@@ -9,8 +9,8 @@ const config = {
 };
 
 // Dosya kaydetme yolu
-const baseDir = path.join('C:', 'Users', 'ulker', 'Desktop', 'Mustafa ÜLKER', 'Ölçümler', '2024');
-const baseFileName = 'FABRIKA_KODU=27_and_DONEM=2024'; // Bu dosya adını değiştirin
+const baseDir = path.join('C:', 'Users', 'ulker', 'Desktop', 'Mustafa ÜLKER', 'Ölçümler', '2021', '2021_EKSİK_KALANLAR');
+const baseFileName = '2021_EKSİK_KALANLAR'; // Bu dosya adını değiştirin
 
 // Bağlantıyı açıp kapatan fonksiyon
 async function connectToSQL() {
@@ -24,7 +24,7 @@ async function connectToSQL() {
         pool = await sql.connect(config);
         console.log('SQL Server bağlantısı başarıyla açıldı!');
 
-        const result = await pool.request().query("select * from vw_olcum_disa_aktar where FABRIKA_KODU=27 and DONEM=2024");
+        const result = await pool.request().query("select * from [2021_EKSİKLER]");
         console.log(result.recordset.length + ' kayıt bulundu.');
 
         // GEOMETRY_TEXT verisini işleme

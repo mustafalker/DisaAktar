@@ -9,7 +9,7 @@ const config = {
 };
 
 // Dosya kaydetme yolu
-const baseDir = path.join('C:', 'Users', 'ulker', 'Desktop', 'Mustafa ÜLKER', 'Sözleşmeler', 'Tamamı', 'Tekrar');
+const baseDir = path.join('C:', 'Users', 'ulker', 'Desktop', 'Mustafa ÜLKER', 'Sözleşmeler', 'Tamamı', '2021 Tamamı');
 const baseFileName = 'SÖZLEŞMELER'; // Bu dosya adını değiştirin
 
 // Bağlantıyı açıp kapatan fonksiyon
@@ -21,7 +21,7 @@ async function connectToSQL() {
         pool = await sql.connect(config);
         console.log('SQL Server bağlantısı başarıyla açıldı!');
 
-        const result = await pool.request().query("select * from vwSozlesmeDısaAktar ORDER BY DONEM DESC, FABRIKA_KODU ASC;");
+        const result = await pool.request().query("select * from vwSozlesmeDısaAktar where DONEM = 2021 ORDER BY FABRIKA_KODU asc;");
         console.log(result.recordset.length + ' kayıt bulundu.');
 
         // Satırları gruplara ayır
